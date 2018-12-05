@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mrsProject.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -69,6 +70,7 @@ namespace mrsProject.Models
             }
 
             OrderDate = System.DateTime.Today;
+            
         }
     }
 }

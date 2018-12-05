@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using mrsProject.DAL;
 using mrsProject.Models;
+using mrsProject.Utilities;
 
 namespace mrsProject.Controllers
 {
@@ -137,7 +138,7 @@ namespace mrsProject.Controllers
             {
                 cart = new Order();
                 cart.PendingOrder = true;
-                cart.OrderNumber = 11;
+                cart.OrderNumber = GenerateNextOrderNumber.GetNextOrderNumber(_context);
                 String userid = User.Identity.Name;
                 AppUser user = _context.Users.FirstOrDefault(u => u.UserName == userid);
                 cart.user = user;
