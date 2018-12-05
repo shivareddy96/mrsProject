@@ -27,8 +27,10 @@ namespace mrsProject.Models
         {
             get { return OrderSubtotal + ShippingCost; }
         }
-        public Decimal ShippingCostFirstBook { get; set; }
-        public Decimal ShippingCostNextBook { get; set; }
+        public Decimal ShippingCostFirstBook = 3.50m;
+
+        public Decimal ShippingCostNextBook = 1.50m;
+       
         public Int32 TotalQuantityBooks
         {
             get { return OrderDetails.Sum(od => od.OrderQuantity); }
@@ -45,7 +47,7 @@ namespace mrsProject.Models
                 }
                 else
                 {
-                    return ShippingCost = ShippingCostFirstBook + ShippingCostNextBook * TotalQuantityBooks - 1;
+                    return ShippingCost = ShippingCostFirstBook + ShippingCostNextBook * (TotalQuantityBooks - 1);
                 }
             }
             set { }
