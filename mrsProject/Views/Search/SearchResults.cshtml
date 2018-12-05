@@ -1,0 +1,66 @@
+﻿@model IEnumerable<mrsProject.Models.Book>
+
+
+@{
+    ViewData["Title"] = "SearchResults";
+}
+
+<h2>SearchResults</h2>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<p>
+    Displaying @ViewBag.SelectedBooks out of @ViewBag.TotalBooks
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookUniqueID)
+            </th>
+            <td>
+                @Html.DisplayNameFor(model => model.ItemInStock)
+            </td>
+
+            <th>
+                @Html.DisplayNameFor(model => model.SimpleRating)
+            </th>
+                       
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookUniqueID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemInStock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SimpleRating)
+                </td>
+               
+                <td>
+                    <a asp-action="BookDetails" asp-route-id="@item.BookID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

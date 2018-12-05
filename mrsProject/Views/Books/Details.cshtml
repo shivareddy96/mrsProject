@@ -1,0 +1,102 @@
+﻿@model mrsProject.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookUniqueID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookUniqueID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemInStock)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ItemInStock)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumInStock)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumInStock)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SimpleRating)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SimpleRating)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastOrderDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastOrderDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ActiveStatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActiveStatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ReOrder)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ReOrder)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BookDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PublicationDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PublicationDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre.GenreName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Genre.GenreName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="AddToOrder" asp-route-id="@Model.BookID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

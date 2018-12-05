@@ -1,0 +1,56 @@
+﻿@model  mrsProject.Models.Order
+@{
+    ViewData["Title"] = "OrderConfirmation";
+}
+
+<h2>OrderConfirmation</h2>
+
+<hr />
+
+<div>
+    <h4>Courses</h4>
+    <table class="table table-sm table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Book Price</th>
+                <th>Book Quantity</th>
+                <th>Book Extended Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (mrsProject.Models.OrderDetail pd in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => pd.Book.Title)</td>
+                    <td>@Html.DisplayFor(modelItem => pd.Book.Price)</td>
+                    <td>@Html.DisplayFor(modelItem => pd.OrderQuantity)</td>
+                    <td>@Html.DisplayFor(modelItem => pd.OrderExtendedPrice)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <table class="table table-sm table-bordered" style="width:30%">
+        <tr>
+            <th colspan="2" style="text-align:center">Order Summary</th>
+        </tr>
+        <tr>
+            <td>Order Subtotal</td>
+            <td>@Html.DisplayFor(r => r.OrderSubtotal)</td>
+        </tr>
+        <tr>
+            <td>Sales Tax (8.25%)</td>
+            <td>@Html.DisplayFor(r => r.ShippingCost)</td>
+        </tr>
+        <tr>
+            <td>Order Total</td>
+            <td>@Html.DisplayFor(r => r.OrderTotal)</td>
+        </tr>
+
+    </table>
+   
+</div>
+
+
