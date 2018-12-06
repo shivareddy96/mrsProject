@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace mrsProject.Models
 {
+    public enum SortOptions { Title, Author, NumPurchased, New, Old, Rated }
     public class Book
     {
         public Int32 BookID { get; set; }
@@ -16,6 +17,8 @@ namespace mrsProject.Models
         public String Author { get; set; }
 
         public Boolean ItemInStock { get; set; }
+
+        public Int32 NumPurchased { get; set; }
 
         public Int32 NumInStock { get; set; }
 

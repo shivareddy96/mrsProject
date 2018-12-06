@@ -10,6 +10,7 @@ using mrsProject.Models;
 
 namespace mrsProject.Controllers
 {
+    public enum SortOptions { Title, Author, NumberPurchased, New, Old, Rated}
     public class SearchController : Controller
 
     {
@@ -19,16 +20,21 @@ namespace mrsProject.Controllers
             return View();
         }
 
+       
+
         public ActionResult Search()
         {
             ViewBag.AllBooks = GetAllBooks();
             return View("SearchResults");
         }
 
-        public ActionResult DisplaySearchResults(string SearchGenre, string SearchTitle, string SearchAuthor)
+
+
+        public ActionResult DisplaySearchResults(string SearchGenre, string SearchTitle, string SearchAuthor, SortOptions sort)
         {
             ViewBag.BookCount = "The total number of books is" + _db.Books.Count();
             List<Book> SelectedBooks = new List<Book>();
+            
 
             var query = from r in _db.Books
                         select r;
@@ -46,12 +52,31 @@ namespace mrsProject.Controllers
             }
 
             SelectedBooks = query.Include(r => r.Genre).ToList();
-
-
             ViewBag.TotalBooks = _db.Books.Count();
             ViewBag.SelectedBooks = SelectedBooks.Count();
 
+            
+            
+
+            switch(sort)
+            {
+                case SortOptions.Title:
+                    return View("SearchResults", SelectedBooks.OrderByDescending(r => r.Title));
+                case SortOptions.Author:
+                    return View("SearchResults", SelectedBooks.OrderByDescending(r => r.Author));
+                case SortOptions.New:
+                    return View("SearchResults", SelectedBooks.OrderByDescending(r => r.PublicationDate));
+                case SortOptions.Old:
+                    return View("SearchResults", SelectedBooks.OrderBy(r => r.PublicationDate));
+                case SortOptions.NumberPurchased:
+                    return View("SearchResults", SelectedBooks.OrderByDescending(r => r.NumPurchased));
+                case SortOptions.Rated:
+                    return View("SearchResults", SelectedBooks.OrderByDescending(r => r.SimpleRating));
+            }
             return View("SearchResults", SelectedBooks);
+
+
+
         }
 
         public IActionResult BookDetails(int? id)

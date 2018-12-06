@@ -19,6 +19,17 @@
         <input name="SearchAuthor" class="form-control" />
     </div>
 
+    <div class="form-group">
+        <label>Select Sort</label>
+        <label class="radio">@Html.RadioButton("sort", SortOptions.Title, true) Title</label>
+        <label class="radio">@Html.RadioButton("sort", SortOptions.Author, true) Author</label>
+        <label class="radio">@Html.RadioButton("sort", SortOptions.New, true) Newest</label>
+        <label class="radio">@Html.RadioButton("sort", SortOptions.Old, true) Oldest</label>
+        <label class="radio">@Html.RadioButton("sort", SortOptions.NumberPurchased, true) Most Popular</label>
+        <label class="radio">@Html.RadioButton("sort", SortOptions.Rated, true) Highest Rated</label>
+    </div>
+    
+    
     <p class="form-group">
         <button type="submit" asp-controller="Search" asp-action="DisplaySearchResults" class="btn btn-secondary">Search</button>
         <button type="submit" asp-controller="Search" asp-action="AllBooks" class="btn btn-secondary">Show All</button>

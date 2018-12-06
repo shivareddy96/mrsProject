@@ -61,13 +61,15 @@ namespace mrsProject.Models
         [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
 
-        [Required(ErrorMessage = "Credit Card is required")]
+        [StringLength(100, ErrorMessage = "The credit card must be at least 16 characters long.", MinimumLength = 16)]
         [Display(Name = "Credit Card1")]
         public string CreditCard1 { get; set; }
 
+        [StringLength(100, ErrorMessage = "The credit card must be at least 16 characters long.", MinimumLength = 16)]
         [Display(Name = "Credit Card2")]
         public string CreditCard2 { get; set; }
 
+        [StringLength(100, ErrorMessage = "The credit must be at least 16 characters long.", MinimumLength = 16)]
         [Display(Name = "Credit Card3")]
         public string CreditCard3 { get; set; }
 
@@ -95,7 +97,7 @@ namespace mrsProject.Models
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The Password must be at least 6 characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]
         public string NewPassword { get; set; }
@@ -110,6 +112,9 @@ namespace mrsProject.Models
     {
         public bool HasPassword { get; set; }
         public String UserName { get; set; }
+        public String FirstName { get; set; }
+        public String LastName { get; set; }
+        public String PhoneNumber { get; set; }
         public String Email { get; set; }
         public String UserID { get; set; }
     }

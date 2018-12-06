@@ -23,7 +23,16 @@ namespace mrsProject.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Orders.ToListAsync());
+            List<Order> Orders = new List<Order>();
+            if (User.IsInRole("Customer"))
+            {
+                Orders = _context.Orders.Where(o => o.user.UserName == User.Identity.Name).ToList();
+            }
+            else
+            {
+                Orders = _context.Orders.Include(o => o.OrderDetails).ToList();
+            }
+            return View(Orders);
         }
 
         // GET: Orders/Details/5

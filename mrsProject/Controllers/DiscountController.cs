@@ -46,7 +46,7 @@ namespace mrsProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Order model,string DiscountNumber, string CouponCode, DiscountDescription discount)
+        public ActionResult Create(Discount model,string DiscountNumber, string CouponCode, DiscountDescription discount)
         {
 
 
@@ -68,17 +68,13 @@ namespace mrsProject.Controllers
                     switch(discount)
                     {
                         case DiscountDescription.Sh:
-                        if(model.OrderSubtotal > numDiscount)
-                            {
-                                model.ShippingCost = 0;
-                            }
-
+                            model.DiscountNum = numDiscount;
                             break;
                         
                         case DiscountDescription.C:
-                            model.OrderSubtotal = model.OrderSubtotal * (1 - (numDiscount/100));
+                            model.DiscountNum = numDiscount;
+
                             break;
-                        
                     }
                     
 

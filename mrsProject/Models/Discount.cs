@@ -13,7 +13,7 @@ namespace mrsProject.Models
 
         public String CouponCode { get; set; }
 
-       
+       public Decimal DiscountNum { get; set; }
 
         public Boolean DiscountActive { get; set; }
         
