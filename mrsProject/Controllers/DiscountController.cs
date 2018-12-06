@@ -46,16 +46,45 @@ namespace mrsProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CouponCode,DiscountDescription,DiscountActive")] Discount discount)
+        public ActionResult Create(Order model,string DiscountNumber, string CouponCode, DiscountDescription discount)
         {
 
 
             if (ModelState.IsValid)
             {
+                if(DiscountNumber != null && DiscountNumber !="")
+                {
+                    decimal numDiscount;
+                    try
+                    {
+                        numDiscount = Convert.ToDecimal(DiscountNumber);
 
-                _context.Add(discount);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index", new { id = discount.DiscountID });
+                    }
+                    catch
+                    {
+                        ViewBag.Message = DiscountNumber + "is not a valid number. Please Try Again";
+                        return View("Create");
+                    }
+                    switch(discount)
+                    {
+                        case DiscountDescription.Sh:
+                        if(model.OrderSubtotal > numDiscount)
+                            {
+                                model.ShippingCost = 0;
+                            }
+
+                            break;
+                        
+                        case DiscountDescription.C:
+                            model.OrderSubtotal = model.OrderSubtotal * (1 - (numDiscount/100));
+                            break;
+                        
+                    }
+                    
+
+                }
+
+                
             }
             return View(discount);
         }
