@@ -56,6 +56,8 @@ namespace mrsProject.Models
 
         public String OrderNotes { get; set; }
 
+        public Int32 PaymentMethod { get; set; }
+
         public Boolean PendingOrder { get; set; }
 
         public AppUser user { get; set; }
