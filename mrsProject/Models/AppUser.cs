@@ -48,5 +48,22 @@ namespace mrsProject.Models
         [InverseProperty("Approver")]
         public List<Review> ReviewsApproved { get; set; }
 
+        public AppUser()
+        {
+            if (Orders == null)
+            {
+                Orders = new List<Order>();
+            }
+
+            if (ReviewsApproved == null)
+            {
+                ReviewsApproved = new List<Review>();
+            }
+
+            if (ReviewsWritten == null)
+            {
+                ReviewsWritten = new List<Review>();
+            }
+        }
     }
 }
