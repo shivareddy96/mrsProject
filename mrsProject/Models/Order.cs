@@ -20,6 +20,7 @@ namespace mrsProject.Models
         public Decimal OrderSubtotal
         {
             get { return OrderDetails.Sum(od => od.OrderExtendedPrice); }
+            set{ }
         }
 
         [Display(Name = "Order Total")]
