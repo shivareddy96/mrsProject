@@ -261,61 +261,26 @@ namespace mrsProject.Controllers
             return _context.Orders.Any(e => e.OrderID == id);
         }
 
-        //GET
-        private IActionResult CheckOut()
-        {
-            List<Order> Orders = new List<Order>();
-            Orders = _context.Orders.Where(o => o.user.UserName == User.Identity.Name).ToList();
-            Order cart = Orders.FirstOrDefault(o => o.PendingOrder == true);
+        
+        
 
-            if (cart == null)
-            {
-                return View("Error");
-            }
+        //private SelectList GetAllProducts(int? id)
+        //{
+        //    List<Book> books = _context.Books.ToList();
 
-            return View(cart);
-        }
+        //    var query = from r in _context.Books
+        //                select r;
 
-        [HttpPost]
-        private IActionResult CheckOut(Order cart, int SelectedCreditCard, string SelectedCoupon)
-        {
-            String userid = User.Identity.Name;
-            AppUser user = _context.Users.FirstOrDefault(u => u.UserName == userid);
+        //    if (id != null)
+        //    {
+        //        query = query.Where(b => b.BookID == id);
+        //    }
 
-            Order dbOrder = _context.Orders.Find(cart.OrderID);
+        //    books = query.ToList();
 
-            if (SelectedCreditCard == 0)
-            {
-                dbOrder.PaymentMethod = user.CreditCard1;
-            }
-            else if (SelectedCreditCard == 1)
-            {
-                dbOrder.PaymentMethod = user.CreditCard2;
-            }
-            else if (SelectedCreditCard == 2)
-            {
-                dbOrder.PaymentMethod = user.CreditCard3;
-            }
-
-            if (dbOrder.PaymentMethod == null)
-            {
-                return View("Error");
-            }
-
-            Discount coupon = _context.Discounts.FirstOrDefault(x => x.CouponCode == SelectedCoupon);
-            if (coupon == null)
-            {
-                return View("Error");
-            }
-
-            //ADD THE CODE TO APPLY THE COUPON TO AFFECT THE ORDER
-            return View("OrderSummory")
-        }
-
-        private IActionResult PlaceOrder()
-        {
-
-        }
+        //    SelectList allBooks = new SelectList(books, "BookID", "BookTitle");
+        //    return allBooks;
+        //}
     }
 }
 
