@@ -147,9 +147,15 @@ namespace mrsProject.Migrations
 
                     b.Property<string>("CreditCard1");
 
+                    b.Property<int>("CreditCard1Type");
+
                     b.Property<string>("CreditCard2");
 
+                    b.Property<int>("CreditCard2Type");
+
                     b.Property<string>("CreditCard3");
+
+                    b.Property<int>("CreditCard3Type");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
@@ -316,7 +322,7 @@ namespace mrsProject.Migrations
 
                     b.Property<int>("OrderNumber");
 
-                    b.Property<int>("PaymentMethod");
+                    b.Property<string>("PaymentMethod");
 
                     b.Property<bool>("PendingOrder");
 
