@@ -10,14 +10,14 @@ using mrsProject.DAL;
 namespace mrsProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20181204013930_lowercase")]
-    partial class lowercase
+    [Migration("20181206034925_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -149,9 +149,15 @@ namespace mrsProject.Migrations
 
                     b.Property<string>("CreditCard1");
 
+                    b.Property<int>("CreditCard1Type");
+
                     b.Property<string>("CreditCard2");
 
+                    b.Property<int>("CreditCard2Type");
+
                     b.Property<string>("CreditCard3");
+
+                    b.Property<int>("CreditCard3Type");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
@@ -182,7 +188,11 @@ namespace mrsProject.Migrations
 
                     b.Property<string>("SecurityStamp");
 
+                    b.Property<string>("SeedPassword");
+
                     b.Property<string>("State");
+
+                    b.Property<string>("TempRole");
 
                     b.Property<bool>("TwoFactorEnabled");
 
@@ -314,13 +324,11 @@ namespace mrsProject.Migrations
 
                     b.Property<int>("OrderNumber");
 
-                    b.Property<decimal>("SalesTax");
+                    b.Property<string>("PaymentMethod");
+
+                    b.Property<bool>("PendingOrder");
 
                     b.Property<decimal>("ShippingCost");
-
-                    b.Property<decimal>("Subtotal");
-
-                    b.Property<decimal>("Total");
 
                     b.Property<string>("userId");
 
