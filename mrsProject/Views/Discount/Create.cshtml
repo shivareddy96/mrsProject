@@ -1,4 +1,5 @@
 ﻿@model mrsProject.Models.Discount
+@using mrsProject.Controllers
 
 @{
     ViewData["Title"] = "Create";
@@ -18,6 +19,10 @@
                 <span asp-validation-for="CouponCode" class="text-danger"></span>
             </div>
             <div class="form-group">
+                Price:@Html.TextBox("DiscountNumber", null, new { @class = "form-control" })
+                <div class="text-danger">@ViewBag.Message</div>
+                <label class="radio">@Html.RadioButton("discount", DiscountDescription.Sh)</label>
+                <label class="radio">@Html.RadioButton("discount", DiscountDescription.C)</label>
             
             </div>
             <div class="form-group">
