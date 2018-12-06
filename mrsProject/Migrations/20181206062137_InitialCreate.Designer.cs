@@ -10,7 +10,7 @@ using mrsProject.DAL;
 namespace mrsProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20181206034925_InitialCreate")]
+    [Migration("20181206062137_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -269,11 +269,7 @@ namespace mrsProject.Migrations
 
                     b.Property<string>("CouponCode");
 
-                    b.Property<string>("DiscountDescription");
-
-                    b.Property<DateTime>("EndDate");
-
-                    b.Property<DateTime>("StartDate");
+                    b.Property<bool>("DiscountActive");
 
                     b.HasKey("DiscountID");
 

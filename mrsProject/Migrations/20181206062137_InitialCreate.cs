@@ -29,9 +29,7 @@ namespace mrsProject.Migrations
                     DiscountID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CouponCode = table.Column<string>(nullable: true),
-                    DiscountDescription = table.Column<string>(nullable: true),
-                    StartDate = table.Column<DateTime>(nullable: false),
-                    EndDate = table.Column<DateTime>(nullable: false)
+                    DiscountActive = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

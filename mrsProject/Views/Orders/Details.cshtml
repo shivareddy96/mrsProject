@@ -1,5 +1,4 @@
 ﻿@model mrsProject.Models.Order
-
 @{
     ViewData["Title"] = "Details";
 }
@@ -56,6 +55,7 @@
     </dl>
 </div>
 <div>
-    <a asp-controller="Order" asp-action="Edit" asp-route-id="@Model.OrderID">Edit</a> |
+    <a asp-controller="Orders" asp-action="Edit" asp-route-id="@Model.OrderID">Edit</a> |
+    <a asp-controller="Orders" asp-action="CheckOut" asp-route-id="@Model.OrderID">Check Out</a> |
     <a asp-controller="Search" asp-action="Index">Back to List</a>
 </div>

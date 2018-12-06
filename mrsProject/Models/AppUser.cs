@@ -35,6 +35,10 @@ namespace mrsProject.Models
 
         public String TempRole { get; set; }
 
+        public CardType CreditCard1Type { get; set; }
+        public CardType CreditCard2Type { get; set; }
+        public CardType CreditCard3Type { get; set; }
+
         //Nav properties
         public List<Order> Orders { get; set; }
 
