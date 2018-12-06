@@ -1,0 +1,21 @@
+﻿@model mrsProject.Models.Order 
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<h2>Checkout</h2>
+
+
+<dl class="dl-horizontal">
+    <div class="form-group">
+        <label class="control-label col-md-2">Select a Payment Method:</label>
+        <div class="col-md-8">
+            @Html.DropDownList("SelectedCreditcard", (SelectList)ViewBag.AllCreditcards, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <dt>
+        <a asp-controller="Account" asp-action="ManageAccount" class="btn btn-success">Enter A New Credit Card</a>
+    </dt>
+
+</dl>
