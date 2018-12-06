@@ -67,7 +67,7 @@ Write(ViewBag.Title);
             WriteLiteral(".</h2>\r\n<div class=\"row\">\r\n    <div class=\"col-md-8\">\r\n        <section id=\"loginForm\">\r\n            ");
             EndContext();
             BeginContext(200, 1586, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "230eb11d33de407abfc4f01eec90b4d0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a835b4dfdbcc4b689d5629272e3cd2ea", async() => {
                 BeginContext(342, 18, true);
                 WriteLiteral("\r\n                ");
                 EndContext();
@@ -162,7 +162,7 @@ Write(ViewBag.Title);
                     ");
                 EndContext();
                 BeginContext(1692, 51, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aab66bbbbd5642468f9b87230f0f3035", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e7e8ff3c8c5249058aaa0ae17281455f", async() => {
                     BeginContext(1717, 22, true);
                     WriteLiteral("Register as a new user");
                     EndContext();

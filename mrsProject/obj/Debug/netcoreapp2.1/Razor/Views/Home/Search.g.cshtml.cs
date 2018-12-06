@@ -62,7 +62,7 @@ using mrsProject.Controllers;
             WriteLiteral("\r\n<h2>Search</h2>\r\n\r\n");
             EndContext();
             BeginContext(94, 618, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4afa7b82d2ac43619774efea99aa37e3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29fe31711ba44dc79e3c573807f4c02e", async() => {
                 BeginContext(154, 442, true);
                 WriteLiteral(@"
     <div class=""form-group"">
@@ -82,7 +82,7 @@ using mrsProject.Controllers;
         ");
                 EndContext();
                 BeginContext(596, 97, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "75609fa64e714a56b13b4fd43261108c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "398119dfee8d4038a81869b54bb10bc6", async() => {
                     BeginContext(678, 6, true);
                     WriteLiteral("Search");
                     EndContext();

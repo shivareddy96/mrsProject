@@ -48,7 +48,7 @@ namespace AspNetCore
             WriteLiteral("\r\n<h1>Seed Data</h1>\r\n\r\n<p>These buttons will seed your data!  Push them to add data to your database!!</p>\r\n\r\n");
             EndContext();
             BeginContext(111, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0104708f21304ea2a0c88290c7590250", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fde1369501504512b95a2d951406d1c4", async() => {
                 BeginContext(181, 11, true);
                 WriteLiteral("Seed Genres");
                 EndContext();
@@ -73,7 +73,7 @@ namespace AspNetCore
             WriteLiteral("\r\n&nbsp;&nbsp;\r\n");
             EndContext();
             BeginContext(212, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "020626a4ce3d49e28c038e09b17ccf92", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a8cebee816c445489ea1a4baa0aad42", async() => {
                 BeginContext(284, 10, true);
                 WriteLiteral("Seed Books");
                 EndContext();

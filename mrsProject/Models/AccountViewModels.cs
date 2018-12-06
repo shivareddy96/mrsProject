@@ -5,7 +5,8 @@ using System;
 
 namespace mrsProject.Models
 {
-   
+    public enum CardType { Visa, AmericanExpress, Discover, Mastercard }
+
     public class LoginViewModel
     {
         [Required]
@@ -23,11 +24,7 @@ namespace mrsProject.Models
     }
 
     public class RegisterViewModel
-    {
-
-        
-
-     
+    {         
         public String FirstName { get; set; }
 
         public String LastName { get; set; }
@@ -60,10 +57,19 @@ namespace mrsProject.Models
         [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
 
-        [Required(ErrorMessage = "Credit Card is required")]
-       [Display(Name = "Credit Card")]
+        [Required(ErrorMessage = "Credit Card1 is required")]
+       [Display(Name = "Credit Card1")]
         public string CreditCard1 { get; set; }
 
+        [Display(Name = "Credit Card2")]
+        public string CreditCard2 { get; set; }
+
+        [Display(Name = "Credit Card3")]
+        public string CreditCard3 { get; set; }
+
+        public CardType CreditCard1Type { get; set; }
+        public CardType CreditCard2Type { get; set; }
+        public CardType CreditCard3Type { get; set; }
 
         //NOTE: Here is the logic for putting in a password
         [Required]

@@ -94,3 +94,5 @@ C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\
 C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.RazorTargetAssemblyInfo.cs
 C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.Views.pdb
 C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.csproj.CopyComplete
+C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Orders\Checkout.g.cshtml.cs
+C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Account\ManageAccount.g.cshtml.cs
