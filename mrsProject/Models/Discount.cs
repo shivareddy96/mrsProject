@@ -5,18 +5,18 @@ using System.Threading.Tasks;
 
 namespace mrsProject.Models
 {
-    public enum DiscountDescription {Sh, C }
-
     public class Discount
     {
         public Int32 DiscountID { get; set; }
 
         public String CouponCode { get; set; }
 
-       
+        public String DiscountDescription { get; set; }
 
-        public Boolean DiscountActive { get; set; }
-        
+        public DateTime StartDate { get; set; }
+
+        public DateTime EndDate { get; set; }
+
         public List<Order> Orders { get; set; }
     }
 }
