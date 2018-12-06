@@ -46,53 +46,7 @@ C:\Users\Matthew\Documents\Fall_2018\MIS_333K\mrsProject\mrsProject\obj\Debug\ne
 C:\Users\Matthew\Documents\Fall_2018\MIS_333K\mrsProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Search\SearchResults.g.cshtml.cs
 C:\Users\Matthew\Documents\Fall_2018\MIS_333K\mrsProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Orders\Details.g.cshtml.cs
 C:\Users\Matthew\Documents\Fall_2018\MIS_333K\mrsProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Orders\OrderConfirmation.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.csprojAssemblyReference.cache
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.dll
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.pdb
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\bin\Debug\netcoreapp2.1\mrsProject.deps.json
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\bin\Debug\netcoreapp2.1\mrsProject.runtimeconfig.json
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\bin\Debug\netcoreapp2.1\mrsProject.runtimeconfig.dev.json
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\bin\Debug\netcoreapp2.1\mrsProject.dll
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\bin\Debug\netcoreapp2.1\mrsProject.pdb
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\bin\Debug\netcoreapp2.1\mrsProject.Views.dll
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\bin\Debug\netcoreapp2.1\mrsProject.Views.pdb
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.csproj.CoreCompileInputs.cache
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.RazorAssemblyInfo.cache
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.RazorAssemblyInfo.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.AssemblyInfoInputs.cache
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.AssemblyInfo.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.TagHelpers.input.cache
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.TagHelpers.output.cache
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.RazorCoreGenerate.cache
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Account\ChangePassword.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Account\Index.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Books\Create.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Books\Delete.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Books\Details.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Books\Edit.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Books\Index.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Home\Home.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Home\Search.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Orders\AddToOrder.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Orders\Details.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Orders\OrderConfirmation.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Search\BookDetails.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Search\Index.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Search\SearchResults.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Seed\Confirm.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Seed\Index.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.RazorTargetAssemblyInfo.cache
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.RazorTargetAssemblyInfo.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.Views.pdb
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.csproj.CopyComplete
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Orders\Checkout.g.cshtml.cs
-C:\Users\reddy\Documents\MIS 333K HW\FinalKP\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Account\ManageAccount.g.cshtml.cs
+C:\Users\Matthew\Documents\Fall_2018\MIS_333K\mrsProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Orders\Checkout.g.cshtml.cs
+C:\Users\Matthew\Documents\Fall_2018\MIS_333K\mrsProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Discount\Create.g.cshtml.cs
+C:\Users\Matthew\Documents\Fall_2018\MIS_333K\mrsProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Discount\Index.g.cshtml.cs
+C:\Users\Matthew\Documents\Fall_2018\MIS_333K\mrsProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Discount\_Layout.g.cshtml.cs

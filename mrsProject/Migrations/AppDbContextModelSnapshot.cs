@@ -267,11 +267,7 @@ namespace mrsProject.Migrations
 
                     b.Property<string>("CouponCode");
 
-                    b.Property<string>("DiscountDescription");
-
-                    b.Property<DateTime>("EndDate");
-
-                    b.Property<DateTime>("StartDate");
+                    b.Property<bool>("DiscountActive");
 
                     b.HasKey("DiscountID");
 

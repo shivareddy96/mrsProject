@@ -24,7 +24,11 @@ namespace mrsProject.Models
     }
 
     public class RegisterViewModel
-    {         
+    {
+
+        
+
+     
         public String FirstName { get; set; }
 
         public String LastName { get; set; }
@@ -57,8 +61,8 @@ namespace mrsProject.Models
         [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
 
-        [Required(ErrorMessage = "Credit Card1 is required")]
-       [Display(Name = "Credit Card1")]
+        [Required(ErrorMessage = "Credit Card is required")]
+        [Display(Name = "Credit Card1")]
         public string CreditCard1 { get; set; }
 
         [Display(Name = "Credit Card2")]

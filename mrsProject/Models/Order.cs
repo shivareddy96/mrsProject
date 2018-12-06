@@ -70,6 +70,7 @@ namespace mrsProject.Models
             {
                 OrderDetails = new List<OrderDetail>();
             }
+
             OrderDate = System.DateTime.Today;
             
         }

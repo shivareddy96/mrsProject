@@ -9,10 +9,10 @@ using mrsProject.Models;
 
 
 
+
+
 namespace mrsProject.Controllers
 {
-    public enum CardType { Visa, AmericanExpress, Discover, Mastercard }
-
     [Authorize]
     public class AccountController : Controller
     {
@@ -70,7 +70,8 @@ namespace mrsProject.Controllers
                 return View(model);
             }
         }
-        
+
+       
         //
         // GET: /Account/Register
         [AllowAnonymous]
@@ -84,8 +85,8 @@ namespace mrsProject.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-
-        public async Task<ActionResult> Register(RegisterViewModel model, CardType SelectCardType1, CardType SelectCardType2, CardType SelectCardType3)
+        
+        public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -96,74 +97,21 @@ namespace mrsProject.Controllers
                     PhoneNumber = model.PhoneNumber,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    PasswordHash = model.Password,
-                    CreditCard1 = model.CreditCard1,
-                    CreditCard1Type = model.CreditCard1Type,
-                    CreditCard2 = model.CreditCard2,
-                    CreditCard2Type = model.CreditCard2Type,
-                    CreditCard3 = model.CreditCard3,
-                    CreditCard3Type = model.CreditCard3Type
+                    PasswordHash = model.Password
+        
+                    
+
+                    
+                   
+
                 };
-
-
-                switch (SelectCardType1)
-                {
-                    case CardType.Discover:
-                        model.CreditCard1Type = Models.CardType.Discover;
-                        break;
-                    case CardType.Visa:
-                        model.CreditCard1Type = Models.CardType.Visa;
-                        break;
-                    case CardType.AmericanExpress:
-                        model.CreditCard1Type = Models.CardType.AmericanExpress;
-                        break;
-                    case CardType.Mastercard:
-                        model.CreditCard1Type = Models.CardType.Mastercard;
-                        break;
-                }
-                switch (SelectCardType2)
-                {
-                    case CardType.Discover:
-                        model.CreditCard2Type = Models.CardType.Discover;
-                        break;
-                    case CardType.Visa:
-                        model.CreditCard2Type = Models.CardType.Visa;
-                        break;
-                    case CardType.AmericanExpress:
-                        model.CreditCard2Type = Models.CardType.AmericanExpress;
-                        break;
-                    case CardType.Mastercard:
-                        model.CreditCard2Type = Models.CardType.Mastercard;
-                        break;
-                }
-                switch (SelectCardType3)
-                {
-                    case CardType.Discover:
-                        model.CreditCard3Type = Models.CardType.Discover;
-                        break;
-                    case CardType.Visa:
-                        model.CreditCard3Type = Models.CardType.Visa;
-                        break;
-                    case CardType.AmericanExpress:
-                        model.CreditCard3Type = Models.CardType.AmericanExpress;
-                        break;
-                    case CardType.Mastercard:
-                        model.CreditCard3Type = Models.CardType.Mastercard;
-                        break;
-                }
-
-
-
-
-
-
                 IdentityResult result = await _userManager.CreateAsync(appUser, model.Password);
                 if (result.Succeeded)
                 {
-
+                    
                     //This will not work until you have seeded Identity OR added the "Customer" role 
                     //by navigating to the RoleAdmin controller and manually added the "Customer" role
-
+                
                     await _userManager.AddToRoleAsync(appUser, "Customer");
                     //another example
                     //await _userManager.AddToRoleAsync(user, "Manager");
@@ -178,12 +126,10 @@ namespace mrsProject.Controllers
                         ModelState.AddModelError("", error.Description);
                     }
                 }
-
-                
-
             }
             return View(model);
         }
+
         
 
         //GET: Account/Index
@@ -204,6 +150,8 @@ namespace mrsProject.Controllers
 
             return View(ivm);
         }
+
+
 
         //Logic for change password
         // GET: /Account/ChangePassword
@@ -248,6 +196,7 @@ namespace mrsProject.Controllers
             return RedirectToAction("Index", "Home");
         }
            
+
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)

@@ -7,17 +7,10 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace mrsProject.Models
-
 {
-    
     public class AppUser : IdentityUser
     {
-
-
-        public CardType CreditCard1Type { get; set; }
-        public CardType CreditCard2Type { get; set; }
-        public CardType CreditCard3Type { get; set; }
-
+       
         public String FirstName { get; set; }
         
         public String LastName { get; set; }
@@ -31,17 +24,20 @@ namespace mrsProject.Models
         public String State { get; set; }
 
         public String Zipcode { get; set; }
-     
+
         public String CreditCard1 { get; set; }
 
         public String CreditCard2 { get; set; }
 
         public String CreditCard3 { get; set; }
-        
 
         public String SeedPassword { get; set; }
 
         public String TempRole { get; set; }
+
+        public CardType CreditCard1Type { get; set; }
+        public CardType CreditCard2Type { get; set; }
+        public CardType CreditCard3Type { get; set; }
 
         //Nav properties
         public List<Order> Orders { get; set; }
