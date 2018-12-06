@@ -111,8 +111,6 @@ namespace mrsProject.Controllers
                 Book = book
             };
 
-            Book testBook = rd.Book;
-
             //ViewBag.AllProducts = GetAllProducts(id);
             return View("AddToOrder", rd);
         }
@@ -162,7 +160,7 @@ namespace mrsProject.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Details", new { id = rd.Order.OrderID });
             }
-            //ViewBag.AllProducts = GetAllProducts(SelectedBook);
+            
             return View(rd);
         }
 
@@ -262,7 +260,7 @@ namespace mrsProject.Controllers
         }
 
         //GET
-        private IActionResult CheckOut(int? id)
+        public IActionResult CheckOut(int? id)
         {
             if (id == null)
             {
@@ -280,44 +278,56 @@ namespace mrsProject.Controllers
                 return View("Error");
             }
 
+
             return View("CheckOut", cart);
         }
 
-        //[HttpPost]
-        //private IActionResult CheckOut(Order cart)
-        //{
-            //String userid = User.Identity.Name;
-            //AppUser user = _context.Users.FirstOrDefault(u => u.UserName == userid);
+        [HttpPost]
+        public IActionResult CheckOut(Order cart, string SelectedCoupon, int SelectedCreditCard)
+        {
+            String userid = User.Identity.Name;
+            AppUser user = _context.Users.FirstOrDefault(u => u.UserName == userid);
 
-            //Order CheckOutOrder = _context.Orders.Find(cart.OrderID);
+            Order dbCheckOutOrder = _context.Orders.Find(cart.OrderID);
 
-            //if (SelectedCreditCard == 0)
-            //{
-            //    CheckOutOrder.PaymentMethod = user.CreditCard1;
-            //}
-            //else if (SelectedCreditCard == 1)
-            //{
-            //    CheckOutOrder.PaymentMethod = user.CreditCard2;
-            //}
-            //else if (SelectedCreditCard == 2)
-            //{
-            //    CheckOutOrder.PaymentMethod = user.CreditCard3;
-            //}
 
-            //if (CheckOutOrder.PaymentMethod == null)
-            //{
-            //    return View("Error");
-            //}
 
-            //Discount coupon = _context.Discounts.FirstOrDefault(x => x.CouponCode == SelectedCoupon);
-            //if (coupon == null)
-            //{
-            //    return View("Error");
-            //}
+            if (SelectedCreditCard == 0)
+            {
+                dbCheckOutOrder.PaymentMethod = user.CreditCard1;
+            }
+            else if (SelectedCreditCard == 1)
+            {
+                dbCheckOutOrder.PaymentMethod = user.CreditCard2;
+            }
+            else if (SelectedCreditCard == 2)
+            {
+                dbCheckOutOrder.PaymentMethod = user.CreditCard3;
+            }
+
+            if (dbCheckOutOrder.PaymentMethod == null)
+            {
+                return View("Error");
+            }
+
+            Discount coupon = _context.Discounts.FirstOrDefault(x => x.CouponCode == SelectedCoupon);
+            if (coupon == null)
+            {
+                return View("Error");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _context.Orders.Update(dbCheckOutOrder);
+                _context.SaveChanges();
+                return RedirectToAction("Details", new { id = dbCheckOutOrder.OrderID });
+            }
 
             //Note: ADD THE CODE TO APPLY THE COUPON TO AFFECT THE ORDER
-            //return View("OrderSummary", CheckOutOrder);
-        //}
+            return View("CheckOut", cart);
+        }
+
+
 
         //Get
         //private IActionResult PlaceOrder(Order cart)

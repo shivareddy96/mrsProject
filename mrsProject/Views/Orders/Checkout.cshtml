@@ -7,66 +7,39 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>Order</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.OrderNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.OrderSubtotal)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderSubtotal)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ShippingCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ShippingCost)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.OrderTotal)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderTotal)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.OrderNotes)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderNotes)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PendingOrder)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PendingOrder)
-        </dd>
-    </dl>
-</div>
-
-<dl class="dl-horizontal">
     <div class="form-group">
-        <label class="control-label col-md-2">Select a Payment Method:</label>
-        <div class="col-md-8">
-            @Html.DropDownList("SelectedCreditcard", (SelectList)ViewBag.AllCreditcards, new { @class = "form-control" })
+        <p>Please Select Your Payment Method</p>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="0" /> @Html.DisplayFor(model => model.user.CreditCard1)
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="1" /> @Html.DisplayFor(model => model.user.CreditCard2)
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="2" /> @Html.DisplayFor(model => model.user.CreditCard3)
+            </label>
         </div>
     </div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            <a asp-controller="Account" asp-action="ManageAccount" class="btn btn-success">Enter A New Credit Card</a>
+        </dt>
+    </dl>
 
-    <dt>
-        <a asp-controller="Account" asp-action="ManageAccount" class="btn btn-success">Enter A New Credit Card</a>
-    </dt>
+    <div class="form-group">
+        <label>Coupon Code:</label>
+        <input name="SearchTitle" class="form-control" />
+    </div>
 
-</dl>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="View Order Summary" class="btn btn-danger" />
+        </div>
+    </div>
