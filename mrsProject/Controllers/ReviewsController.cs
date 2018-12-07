@@ -54,7 +54,7 @@ namespace mrsProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(int? id, [Bind("ReviewID,Rating,Approved,ReviewDescription")] Review review)
+        public async Task<IActionResult> Create(int? id, [Bind("ReviewID,Rating,Approved,Pending,ReviewDescription")] Review review)
         {
             if (ModelState.IsValid)
             {

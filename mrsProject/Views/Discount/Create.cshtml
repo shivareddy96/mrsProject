@@ -19,11 +19,13 @@
                 <span asp-validation-for="CouponCode" class="text-danger"></span>
             </div>
             <div class="form-group">
-                Price:@Html.TextBox("DiscountNumber", null, new { @class = "form-control" })
+                Number:@Html.TextBox("DiscountNumber", null, new { @class = "form-control" })
                 <div class="text-danger">@ViewBag.Message</div>
-                <label class="radio">@Html.RadioButton("discount", DiscountDescription.Sh)</label>
-                <label class="radio">@Html.RadioButton("discount", DiscountDescription.C)</label>
-            
+                <!--Html.RadioButtonFor(model => model.IsShippingDiscount, "false") Percentage Off Discount
+                Html.RadioButtonFor(model => model.IsShippingDiscount, "true") Shipping Discount-->
+                <label class="radio">@Html.RadioButton("discount", DiscountDescription.C, true) Shipping </label>
+                <label class="radio">@Html.RadioButton("discount", DiscountDescription.Sh, true) Discount</label>
+
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />

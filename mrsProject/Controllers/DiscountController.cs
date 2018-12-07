@@ -12,7 +12,6 @@ using mrsProject.Utilities;
 
 namespace mrsProject.Controllers
 {
-
     public enum DiscountDescription { Sh, C }
 
     public class DiscountController : Controller
@@ -65,24 +64,26 @@ namespace mrsProject.Controllers
                         ViewBag.Message = DiscountNumber + "is not a valid number. Please Try Again";
                         return View("Create");
                     }
-                    switch(discount)
+                    switch (discount)
                     {
                         case DiscountDescription.Sh:
                             model.DiscountNum = numDiscount;
+                            //discount = DiscountDescription.Sh;
+                            model.DiscountType = DiscountDescription.Sh;
                             break;
-                        
+
                         case DiscountDescription.C:
                             model.DiscountNum = numDiscount;
-
+                            //discount = DiscountDescription.C;
+                            model.DiscountType = DiscountDescription.C;
                             break;
                     }
-                    
-
                 }
+                _context.Discounts.Add(model);
+                _context.SaveChanges();
 
-                
             }
-            return View(discount);
+            return View("Index");
         }
     }
 
