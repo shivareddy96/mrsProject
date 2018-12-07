@@ -104,3 +104,10 @@ C:\Users\reddy\Documents\MIS 333K HW\UpdatedProject\mrsProject\obj\Debug\netcore
 C:\Users\reddy\Documents\MIS 333K HW\UpdatedProject\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.dll
 C:\Users\reddy\Documents\MIS 333K HW\UpdatedProject\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.pdb
 C:\Users\reddy\Documents\MIS 333K HW\UpdatedProject\mrsProject\obj\Debug\netcoreapp2.1\mrsProject.csproj.CopyComplete
+C:\Users\reddy\Documents\MIS 333K HW\UpdatedProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Orders\Index.g.cshtml.cs
+C:\Users\reddy\Documents\MIS 333K HW\UpdatedProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Reviews\Index.g.cshtml.cs
+C:\Users\reddy\Documents\MIS 333K HW\UpdatedProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Reviews\AddReview.g.cshtml.cs
+C:\Users\reddy\Documents\MIS 333K HW\UpdatedProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Reviews\Create.g.cshtml.cs
+C:\Users\reddy\Documents\MIS 333K HW\UpdatedProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Reviews\Delete.g.cshtml.cs
+C:\Users\reddy\Documents\MIS 333K HW\UpdatedProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Reviews\Details.g.cshtml.cs
+C:\Users\reddy\Documents\MIS 333K HW\UpdatedProject\mrsProject\obj\Debug\netcoreapp2.1\Razor\Views\Reviews\Edit.g.cshtml.cs

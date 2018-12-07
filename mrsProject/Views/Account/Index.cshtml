@@ -1,4 +1,5 @@
-﻿@model mrsProject.Models.IndexViewModel
+﻿
+@model mrsProject.Models.IndexViewModel
 @{
     ViewBag.Title = "Manage";
 }
@@ -9,17 +10,16 @@
     <h4>Hello Welcome</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>User Name:</dt>
-        <dd>@Model.UserName</dd>
         <dt>First Name:</dt>
         <dd>@Model.FirstName</dd>
         <dt>Last Name:</dt>
         <dd>@Model.LastName</dd>
-
         <dt>Email:</dt>
         <dd>@Model.Email</dd>
         <dt>Address:</dt>
-        <dd>@Model.Email</dd>
+        <dd>@Model.Address</dd>
+        <dt>Phone Number:</dt>
+        <dd>@Model.PhoneNumber</dd>
 
         <dt>Password:</dt>
         <dd>

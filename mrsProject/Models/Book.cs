@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 namespace mrsProject.Models
 {
     public enum SortOptions { Title, Author, NumPurchased, New, Old, Rated }
+    
     public class Book
     {
         public Int32 BookID { get; set; }

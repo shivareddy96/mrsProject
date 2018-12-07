@@ -11,6 +11,7 @@ using mrsProject.Models;
 namespace mrsProject.Controllers
 {
     public enum SortOptions { Title, Author, NumberPurchased, New, Old, Rated}
+   
     public class SearchController : Controller
 
     {
@@ -55,26 +56,28 @@ namespace mrsProject.Controllers
             ViewBag.TotalBooks = _db.Books.Count();
             ViewBag.SelectedBooks = SelectedBooks.Count();
 
-            
+
             
 
-            switch(sort)
+
+            switch (sort)
             {
                 case SortOptions.Title:
-                    return View("SearchResults", SelectedBooks.OrderByDescending(r => r.Title));
+                    return View("SearchResults", SelectedBooks.OrderBy(r => r.Title));
                 case SortOptions.Author:
-                    return View("SearchResults", SelectedBooks.OrderByDescending(r => r.Author));
+                    return View("SearchResults", SelectedBooks.OrderBy(r => r.Author));
                 case SortOptions.New:
-                    return View("SearchResults", SelectedBooks.OrderByDescending(r => r.PublicationDate));
-                case SortOptions.Old:
                     return View("SearchResults", SelectedBooks.OrderBy(r => r.PublicationDate));
+                case SortOptions.Old:
+                    return View("SearchResults", SelectedBooks.OrderByDescending(r => r.PublicationDate));
                 case SortOptions.NumberPurchased:
-                    return View("SearchResults", SelectedBooks.OrderByDescending(r => r.NumPurchased));
+                    return View("SearchResults", SelectedBooks.OrderBy(r => r.NumPurchased));
                 case SortOptions.Rated:
-                    return View("SearchResults", SelectedBooks.OrderByDescending(r => r.SimpleRating));
+                    return View("SearchResults", SelectedBooks.OrderBy(r => r.SimpleRating));
             }
-            return View("SearchResults", SelectedBooks);
+            
 
+            return View();
 
 
         }

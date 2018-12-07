@@ -1,4 +1,5 @@
 ﻿@using mrsProject.Controllers
+@model mrsProject.Models.Book
 @{
     ViewData["Title"] = "Search";
 }
@@ -28,7 +29,6 @@
         <label class="radio">@Html.RadioButton("sort", SortOptions.NumberPurchased, true) Most Popular</label>
         <label class="radio">@Html.RadioButton("sort", SortOptions.Rated, true) Highest Rated</label>
     </div>
-    
     
     <p class="form-group">
         <button type="submit" asp-controller="Search" asp-action="DisplaySearchResults" class="btn btn-secondary">Search</button>

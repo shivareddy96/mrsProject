@@ -200,6 +200,10 @@ namespace mrsProject.Controllers
             ivm.HasPassword = true;
             ivm.UserID = appUser.Id;
             ivm.UserName = appUser.UserName;
+            ivm.FirstName = appUser.FirstName;
+            ivm.LastName = appUser.LastName;
+            ivm.Address = appUser.Address;
+            ivm.PhoneNumber = appUser.PhoneNumber;
 
 
             return View(ivm);

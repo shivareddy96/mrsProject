@@ -10,63 +10,68 @@ using mrsProject.Models;
 
 namespace mrsProject.Controllers
 {
-    public class BooksController : Controller
+    public class ReviewsController : Controller
     {
         private readonly AppDbContext _context;
 
-        public BooksController(AppDbContext context)
+        public ReviewsController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Books
+        // GET: Reviews
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Books.ToListAsync());
+            return View(await _context.Reviews.ToListAsync());
         }
 
-        // GET: Books/Details/5
-        public IActionResult Details(int? id)
+        // GET: Reviews/Details/5
+        public async Task<IActionResult> Details(int? id)
         {
-            if (id == null) //Repo id not specified
+            if (id == null)
             {
-                return View("Error", new String[] { "Book ID not specified - which book do you want to view?" });
+                return NotFound();
             }
 
-            Book b = _context.Books.Include(r => r.Genre).FirstOrDefault(r => r.BookID == id);
-
-            if (b == null) //Repo does not exist in database
+            var review = await _context.Reviews
+                .FirstOrDefaultAsync(m => m.ReviewID == id);
+            if (review == null)
             {
-                return View("Error", new String[] { "Book not found in database" });
+                return NotFound();
             }
 
-            //if code gets this far, all is well
-            return View(b);
+            return View(review);
         }
 
-        // GET: Books/Create
+        // GET: Reviews/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Books/Create
+        // POST: Reviews/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookID,BookUniqueID,Title,Author,ItemInStock,NumInStock,SimpleRating,LastOrderDate,ActiveStatus,Price,Cost,ReOrder,BookDescription,PublicationDate")] Book book)
+        public async Task<IActionResult> Create(int? id, [Bind("ReviewID,Rating,Approved,ReviewDescription")] Review review)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(book);
+                List<Book> Books = new List<Book>();
+
+                Books = _context.Books.ToList();
+
+                review.book = Books.FirstOrDefault(r => r.BookID == id);
+
+                _context.Add(review);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(book);
+            return View(review);
         }
 
-        // GET: Books/Edit/5
+        // GET: Reviews/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,22 +79,22 @@ namespace mrsProject.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Books.FindAsync(id);
-            if (book == null)
+            var review = await _context.Reviews.FindAsync(id);
+            if (review == null)
             {
                 return NotFound();
             }
-            return View(book);
+            return View(review);
         }
 
-        // POST: Books/Edit/5
+        // POST: Reviews/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookID,BookUniqueID,Title,Author,ItemInStock,NumInStock,SimpleRating,LastOrderDate,ActiveStatus,Price,Cost,ReOrder,BookDescription,PublicationDate")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("ReviewID,Rating,Approved,ReviewDescription")] Review review)
         {
-            if (id != book.BookID)
+            if (id != review.ReviewID)
             {
                 return NotFound();
             }
@@ -98,12 +103,12 @@ namespace mrsProject.Controllers
             {
                 try
                 {
-                    _context.Update(book);
+                    _context.Update(review);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BookExists(book.BookID))
+                    if (!ReviewExists(review.ReviewID))
                     {
                         return NotFound();
                     }
@@ -114,10 +119,10 @@ namespace mrsProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(book);
+            return View(review);
         }
 
-        // GET: Books/Delete/5
+        // GET: Reviews/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -125,35 +130,30 @@ namespace mrsProject.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Books
-                .FirstOrDefaultAsync(m => m.BookID == id);
-            if (book == null)
+            var review = await _context.Reviews
+                .FirstOrDefaultAsync(m => m.ReviewID == id);
+            if (review == null)
             {
                 return NotFound();
             }
 
-            return View(book);
+            return View(review);
         }
 
-        // POST: Books/Delete/5
+        // POST: Reviews/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var book = await _context.Books.FindAsync(id);
-            _context.Books.Remove(book);
+            var review = await _context.Reviews.FindAsync(id);
+            _context.Reviews.Remove(review);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BookExists(int id)
+        private bool ReviewExists(int id)
         {
-            return _context.Books.Any(e => e.BookID == id);
+            return _context.Reviews.Any(e => e.ReviewID == id);
         }
-
-                             
-
-        }
-
-       
     }
+}

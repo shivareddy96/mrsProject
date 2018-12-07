@@ -27,7 +27,7 @@ namespace mrsProject.Controllers
 
         // GET: Orders
         
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             List<Discount> discounts = new List<Discount>();
 

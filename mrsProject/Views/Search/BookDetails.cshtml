@@ -34,6 +34,18 @@
             @Html.DisplayFor(model => model.Price)
         </dd>
         <dt>
+            @Html.DisplayNameFor(model => model.SimpleRating)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SimpleRating)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Reviews)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Reviews)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.PublicationDate)
         </dt>
         <dd>
@@ -45,13 +57,15 @@
         <dd>
             @Html.DisplayFor(model => model.Genre.GenreName)
         </dd>
-        
+
+
     </dl>
 </div>
 <div>
     <button type="submit" asp-controller="Search" asp-action="DisplaySearchResults" class="btn btn-secondary">Back to Search</button>
     <a asp-controller="Orders" asp-action="AddToOrder" asp-route-id="@Model.BookID">Add to Order</a> |
-    <a asp-controller="Orders" asp-action="CheckOut">Check Out</a>
+    <a asp-controller="Reviews" asp-action="Create" asp-route-id="@Model.BookID">Add Review</a> |
+    
 </div>
 
 

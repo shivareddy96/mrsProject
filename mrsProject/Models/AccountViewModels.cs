@@ -111,11 +111,13 @@ namespace mrsProject.Models
     public class IndexViewModel
     {
         public bool HasPassword { get; set; }
-        public String UserName { get; set; }
-        public String FirstName { get; set; }
-        public String LastName { get; set; }
-        public String PhoneNumber { get; set; }
-        public String Email { get; set; }
-        public String UserID { get; set; }
+        public string UserID { get; set; }
+        public string UserName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Address { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
+        
     }
 }
