@@ -57,11 +57,8 @@ namespace mrsProject
             });
 
 
-            Seeding.SeedIdentity.AddAdmin(service);
-            //Seeding.SeedIdentity.AddRolesToSeeded(service).Wait();
-            //Seeding.SeedIdentity.SetUserNames(service).Wait();
-            //Seeding.SeedCustomers.SeedAllCustomers(service).Wait();
-            //Seeding.SeedEmployees.SeedAllEmployees(service).Wait();
+            //Seeding.SeedIdentity.AddAdmin(service).Wait();
+            
         }
     }
 }
