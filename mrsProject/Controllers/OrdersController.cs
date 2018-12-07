@@ -149,6 +149,9 @@ namespace mrsProject.Controllers
                 String userid = User.Identity.Name;
                 AppUser user = _context.Users.FirstOrDefault(u => u.UserName == userid);
                 cart.user = user;
+
+                _context.Orders.Add(cart);
+                _context.SaveChanges();
             }
 
             //find the registration based on the id
@@ -276,9 +279,7 @@ namespace mrsProject.Controllers
                 return View("Error", new string[] { "You need to specify an order id" });
             }
 
-            List<Order> Orders = new List<Order>();
-            Orders = _context.Orders.Where(o => o.user.UserName == User.Identity.Name).ToList();
-            Order cart = Orders.FirstOrDefault(o => o.PendingOrder == true);
+            Order cart = _context.Orders.Include(o => o.OrderDetails).Include(o => o.user).FirstOrDefault(o => o.OrderID == id);
 
             //Order cart = _context.Orders.Include(r => r.OrderDetails).ThenInclude(r => r.Book).FirstOrDefault(r => r.OrderID == id);
 
@@ -295,23 +296,30 @@ namespace mrsProject.Controllers
         public IActionResult CheckOut(Order cart, string SelectedCoupon, int SelectedCreditCard)
         {
             String userid = User.Identity.Name;
-            AppUser user = _context.Users.FirstOrDefault(u => u.UserName == userid);
+            AppUser CurrentUser = _context.Users.FirstOrDefault(u => u.UserName == userid);
 
-            Order dbCheckOutOrder = _context.Orders.Find(cart.OrderID);
+            List<Order> Orders = new List<Order>();
+
+            Orders = _context.Orders.Include(o => o.OrderDetails).Include(o => o.user).Where(o => o.user.UserName == CurrentUser.UserName).ToList();
+
+            Order dbCheckOutOrder = Orders.FirstOrDefault(o => o.PendingOrder == true);
+
+
+            //Order dbCheckOutOrder = _context.Orders.Include(o => o.OrderDetails).Include(o => o.user).FirstOrDefault(o => o.PendingOrder == true);
 
 
 
             if (SelectedCreditCard == 0)
             {
-                dbCheckOutOrder.PaymentMethod = user.CreditCard1;
+                dbCheckOutOrder.PaymentMethod = CurrentUser.CreditCard1;
             }
             else if (SelectedCreditCard == 1)
             {
-                dbCheckOutOrder.PaymentMethod = user.CreditCard2;
+                dbCheckOutOrder.PaymentMethod = CurrentUser.CreditCard2;
             }
             else if (SelectedCreditCard == 2)
             {
-                dbCheckOutOrder.PaymentMethod = user.CreditCard3;
+                dbCheckOutOrder.PaymentMethod = CurrentUser.CreditCard3;
             }
 
             if (dbCheckOutOrder.PaymentMethod == null)
@@ -319,17 +327,23 @@ namespace mrsProject.Controllers
                 return View("Error");
             }
 
-            Discount coupon = _context.Discounts.FirstOrDefault(x => x.CouponCode == SelectedCoupon);
-            if (coupon == null)
+            if (SelectedCoupon != null)
             {
-                return View("Error");
+                Discount coupon = _context.Discounts.FirstOrDefault(x => x.CouponCode == SelectedCoupon);
+                if (coupon == null)
+                {
+                    return View("Error");
+                }
             }
+
+
+
 
             if (ModelState.IsValid)
             {
                 _context.Orders.Update(dbCheckOutOrder);
                 _context.SaveChanges();
-                return RedirectToAction("Details", new { id = dbCheckOutOrder.OrderID });
+                return RedirectToAction("OrderSummary", new { id = dbCheckOutOrder.OrderID });
             }
 
             //Note: ADD THE CODE TO APPLY THE COUPON TO AFFECT THE ORDER
@@ -339,10 +353,53 @@ namespace mrsProject.Controllers
 
 
         //Get
-        //private IActionResult PlaceOrder(Order cart)
-        //{
+        public IActionResult OrderSummary(int? id)
+        {
+            if (id == null)
+            {
+                return View("Error", new string[] { "You need to specify an order id" });
+            }
 
-        //}
+            Order cart = _context.Orders.Include(o => o.user).Include(o => o.OrderDetails).ThenInclude(od => od.Book).FirstOrDefault(o => o.OrderID == id);
+
+            if (cart == null)
+            {
+                return View("Error");
+            }
+
+            return View("OrderSummary", cart);
+        }
+
+        [HttpPost]
+        public IActionResult OrderSummary(Order cart)
+        {
+            String userid = User.Identity.Name;
+            AppUser CurrentUser = _context.Users.FirstOrDefault(u => u.UserName == userid);
+
+            List<Order> Orders = new List<Order>();
+
+            Orders = _context.Orders.Include(o => o.OrderDetails).Include(o => o.user).Where(o => o.user.UserName == CurrentUser.UserName).ToList();
+
+            Order dbCart = Orders.FirstOrDefault(o => o.PendingOrder == true);
+
+            //Order dbCart = _context.Orders.Include(o => o.OrderDetails).Include(o => o.user).FirstOrDefault(o => o.PendingOrder == true);
+
+            //foreach (OrderDetail od in dbCart.OrderDetails)
+            //{
+
+            //}
+
+            dbCart.PendingOrder = false;
+
+            if (ModelState.IsValid)
+            {
+                _context.Orders.Update(dbCart);
+                _context.SaveChanges();
+                return View("OrderConfirmation", dbCart);
+            }
+
+            return View("Error");
+        }
     }
 }
 
