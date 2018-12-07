@@ -5,42 +5,40 @@
 }
 
 <h2>Index</h2>
+@if (User.Identity.IsAuthenticated)
+{ }
+    <p>
+        <a asp-action="Create">Create Review</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rating)
+                </th>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Approved)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReviewDescription)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Approved)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewDescription)
-            </td>
-            <td>          
-                <a asp-action="Details" asp-route-id="@item.ReviewID">Details</a> |
+                <th>
+                    @Html.DisplayNameFor(model => model.ReviewDescription)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
 
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReviewDescription)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.ReviewID">Details</a> |
+                        <a asp-action="Edit" asp-route-id="@item.ReviewID">Approve/Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
