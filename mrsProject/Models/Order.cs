@@ -11,8 +11,10 @@ namespace mrsProject.Models
     {
         public Int32 OrderID { get; set; }
 
+        [Display(Name = "Order Number")]
         public Int32 OrderNumber { get; set; }
 
+        [Display(Name = "Order Date")]
         public DateTime OrderDate { get; set; }
 
         [Display(Name = "Order Subtotal")]
@@ -55,11 +57,13 @@ namespace mrsProject.Models
             set { }
         }
 
+        [Display(Name = "Order Notes")]
         public String OrderNotes { get; set; }
 
+        [Display(Name = "Payment Method")]
         public String PaymentMethod { get; set; }
-        
 
+        [Display(Name = "Pending Order")]
         public Boolean PendingOrder { get; set; }
 
         public AppUser user { get; set; }

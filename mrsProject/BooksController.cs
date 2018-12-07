@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using mrsProject.DAL;
 using mrsProject.Models;
-using mrsProject.Utilities;
 
 namespace mrsProject.Controllers
 {
@@ -58,7 +57,6 @@ namespace mrsProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BookID,BookUniqueID,Title,Author,ItemInStock,NumInStock,SimpleRating,LastOrderDate,ActiveStatus,Price,Cost,ReOrder,BookDescription,PublicationDate")] Book book)
         {
-            book.BookUniqueID = GenerateNextUniqueNumber.GetNextUniqueNumber(_context);
             if (ModelState.IsValid)
             {
                 _context.Add(book);
