@@ -1,45 +1,51 @@
 ﻿@model mrsProject.Models.Order
+
 @{
     ViewData["Title"] = "CheckOut";
 }
 
 <h2>Checkout</h2>
 
-<h2>Details</h2>
+@using (Html.BeginForm())
+{
 
+    @Html.AntiForgeryToken()
 
-    <div class="form-group">
-        <p>Please Select Your Payment Method</p>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="0" /> @Html.DisplayFor(model => model.user.CreditCard1)
-            </label>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <p>Please Select Your Payment Method (Choose One)</p>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="0" /> @Html.DisplayFor(model => model.user.CreditCard1)
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="1" /> @Html.DisplayFor(model => model.user.CreditCard2)
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="2" /> @Html.DisplayFor(model => model.user.CreditCard3)
+                </label>
+            </div>
         </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="1" /> @Html.DisplayFor(model => model.user.CreditCard2)
-            </label>
+
+        <dl class="dl-horizontal">
+            <dt>
+                <a asp-controller="Account" asp-action="ManageAccount" class="btn btn-success">Enter A New Credit Card</a>
+            </dt>
+        </dl>
+
+        <div class="form-group">
+            <label>Coupon Code:</label>
+            <input name="SelectedCoupon" class="form-control" />
         </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="2" /> @Html.DisplayFor(model => model.user.CreditCard3)
-            </label>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Proceed to Order Summary" class="btn btn-default">
+            </div>
         </div>
     </div>
-    
-    <dl class="dl-horizontal">
-        <dt>
-            <a asp-controller="Account" asp-action="ManageAccount" class="btn btn-success">Enter A New Credit Card</a>
-        </dt>
-    </dl>
-
-    <div class="form-group">
-        <label>Coupon Code:</label>
-        <input name="SearchTitle" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="View Order Summary" class="btn btn-danger" />
-        </div>
-    </div>
+}
