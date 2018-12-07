@@ -20,21 +20,9 @@ namespace mrsProject.Controllers
         }
 
         // GET: Reviews
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Review> Reviews = new List<Review>();
-
-            if (User.IsInRole("Customer"))
-            {
-                Reviews = _context.Reviews.Include(o => o.Author).Where(o => o.Author.UserName == User.Identity.Name).ToList();
-            }
-            else
-            {
-                Reviews = _context.Reviews.Include(r => r.Author).Where(r => r.Pending == true).ToList();
-            }
-            return View(Reviews);
-
-            
+            return View(await _context.Reviews.ToListAsync());
         }
 
         // GET: Reviews/Details/5
@@ -76,10 +64,6 @@ namespace mrsProject.Controllers
 
                 review.book = Books.FirstOrDefault(r => r.BookID == id);
 
-                String name = User.Identity.Name;
-                AppUser CurrentUser = _context.Users.FirstOrDefault(u => u.UserName == name);
-                review.Author = CurrentUser;
-
                 _context.Add(review);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -108,7 +92,7 @@ namespace mrsProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ReviewID,Approved,ReviewDescription")] Review review)
+        public async Task<IActionResult> Edit(int id, [Bind("ReviewID,Rating,Approved,ReviewDescription")] Review review)
         {
             if (id != review.ReviewID)
             {

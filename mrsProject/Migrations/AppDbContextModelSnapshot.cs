@@ -380,8 +380,6 @@ namespace mrsProject.Migrations
 
                     b.Property<int?>("BookID");
 
-                    b.Property<bool>("Pending");
-
                     b.Property<decimal>("Rating")
                         .HasMaxLength(5);
 

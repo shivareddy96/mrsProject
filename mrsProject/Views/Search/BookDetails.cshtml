@@ -64,8 +64,9 @@
 <div>
     <button type="submit" asp-controller="Search" asp-action="DisplaySearchResults" class="btn btn-secondary">Back to Search</button>
     <a asp-controller="Orders" asp-action="AddToOrder" asp-route-id="@Model.BookID">Add to Order</a> |
+    <a asp-controller="Books" asp-action="ManualReorder" asp-route-id="@Model.BookID">Manual Reorder</a> |
     <a asp-controller="Reviews" asp-action="Create" asp-route-id="@Model.BookID">Add Review</a> |
-    
+
 </div>
 
 

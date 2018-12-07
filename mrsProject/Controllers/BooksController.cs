@@ -26,6 +26,13 @@ namespace mrsProject.Controllers
             return View(await _context.Books.ToListAsync());
         }
 
+        // GET: Books
+        public async Task<IActionResult> ReorderIndex()
+        {
+            return View(await _context.Books.ToListAsync());
+        }
+
+
         // GET: Books/Details/5
         public IActionResult Details(int? id)
         {
@@ -64,6 +71,54 @@ namespace mrsProject.Controllers
                 _context.Add(book);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+               
+            }
+            return View(book);
+        }
+
+        public async Task<IActionResult> ManualReorder(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var book = await _context.Books.FindAsync(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+            return View(book);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ManualReorder(int id, [Bind("BookID,BookUniqueID,Title,Author,ItemInStock,NumInStock,SimpleRating,LastOrderDate,ActiveStatus,Price,Cost,ReOrder,BookDescription,PublicationDate")] Book book)
+        {
+            //if (id != book.BookID)
+            //{
+                //return NotFound();
+            //}
+            
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(book);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BookExists(book.BookID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return View("Index", "Search");
             }
             return View(book);
         }

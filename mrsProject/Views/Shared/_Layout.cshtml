@@ -24,6 +24,7 @@
                         @Html.ActionLink("Search", "Index", "Search", null, new { @class = "nav-link" })
                     </li>
 
+
                     @if (User.Identity.IsAuthenticated)
                     {
 
@@ -39,6 +40,7 @@
                             <li class="nav-item">
                                 @Html.ActionLink("Manage Users", "Index", "RoleAdmin", null, new { @class = "nav-link" })
                             </li>
+                          
                         }
 
                     }

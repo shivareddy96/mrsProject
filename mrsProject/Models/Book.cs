@@ -26,6 +26,8 @@ namespace mrsProject.Models
         [Display(Name = "Number Purchased")]
         public Int32 NumPurchased { get; set; }
 
+       
+
         [Display(Name = "Number in Stock")]
         public Int32 NumInStock { get; set; }
 
